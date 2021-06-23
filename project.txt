@@ -1,0 +1,26 @@
+import request
+#import os
+from datetime import datetime
+
+api key='747ad4e83355cfe7e7208d8911b8cd'
+location=input("Enter the city name:")
+
+complete_ap1_Link="https://api.oneweathermap.org/data/2.5/weather?q="+Location+"&appid="+api_key
+ap1_Link=requests.get(complete_api_link)
+api_data=api_Link.json()
+
+#creat variables to store and display data
+temp_city=((api_data['main']['temp']) -273.15)
+weather_desc =api_data['weather'][0]['description']
+hmdt=api_data['main']['humidity']
+wind_spd=api_data['wind']['speed']
+date_time=datetime.now().strftime("%d %b %y|%I:%M:%S %P")
+
+print("---------------------------------------------------------------------")
+print("Weather stats for - {} ||{}".formate(location.upper(),date_time))
+print("---------------------------------------------------------------------")
+
+print("current temperature is:{:.2f}deg C".formate(temp_city))
+print("current weather desc  :",weather_desc)
+print("current Humidity      :",hmdt,'%')
+print("current wind speed    :",Wind_spd,'kmph')
